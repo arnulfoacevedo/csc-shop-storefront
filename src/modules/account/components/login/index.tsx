@@ -25,7 +25,7 @@ const Login = ({ setCurrentView }: Props) => {
         <h1 className="text-center text-[28px]/none pb-5">Sign in</h1>
         <div className={"bg-[#ffdddd] py-2 px-5" + (message ? "" : " hidden")}>
           <p>
-            <span>Your email address or password is incorrect. Please try again. If you've forgotten your sign in details, just click the 'Forgot your password?' link below.</span>
+            <span>Your email address or password is incorrect. Please try again. If you have forgotten your sign in details, just click the &quot;Forgot your password?&quot; link below.</span>
           </p>
         </div>
 
@@ -33,7 +33,7 @@ const Login = ({ setCurrentView }: Props) => {
           <div className="text-sm bg-white border border-brand-gray-200 p-5">
             <h2 className="text-xl/snug">New Customer?</h2>
             <p className="mt-3">
-              Create an account with us and you'll be able to:
+              Create an account with us and you will be able to:
             </p>
             <ul className="list-disc mt-5 pl-5">
               <li>Check out faster</li>

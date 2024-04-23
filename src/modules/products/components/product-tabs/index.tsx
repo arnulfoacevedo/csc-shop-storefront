@@ -6,7 +6,7 @@ import Back from "@modules/common/icons/back"
 import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 
-import Accordion from "./accordion"
+// import Accordion from "./accordion"
 
 type ProductTabsProps = {
   product: PricedProduct
@@ -26,7 +26,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
 
   return (
     <div className="w-full">
-      <Accordion type="multiple">
+      {/* <Accordion type="multiple">
         {tabs.map((tab, i) => (
           <Accordion.Item
             key={i}
@@ -37,7 +37,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
             {tab.component}
           </Accordion.Item>
         ))}
-      </Accordion>
+      </Accordion> */}
     </div>
   )
 }

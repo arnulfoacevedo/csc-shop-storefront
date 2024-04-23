@@ -171,7 +171,7 @@ const SearchBar = ({jwt}: Props) => {
                                             <div className="border-t border-brand-gray-200 space-y-2 py-4">
                                                 <div className="flex items-start space-x-2">
                                                     <div className="w-14 h-14  shrink-0">
-                                                        <img className="w-full h-full object-cover" src="./image/ISS3182-001__98279.jpg" alt="" />
+                                                        <Image className="w-full h-full object-cover" src="" fill alt="" />
                                                     </div>
                                                     <div className="space-y-1.5">
                                                         <Link className="block" href="#">
@@ -194,7 +194,7 @@ const SearchBar = ({jwt}: Props) => {
                                             <div className="border-t border-brand-gray-200 space-y-2 py-4">
                                                 <div className="flex items-start space-x-2">
                                                     <div className="w-14 h-14  shrink-0">
-                                                        <img className="w-full h-full object-cover" src="./image/ISS3182-001__98279.jpg" alt="" />
+                                                        <Image className="w-full h-full object-cover" src="" fill alt="" />
                                                     </div>
                                                     <div className="space-y-1.5">
                                                         <Link className="block" href="#">

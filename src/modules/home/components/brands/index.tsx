@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
+import Image from "next/image";
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -9,7 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 
-export default async function Brands() {
+export default function Brands() {
   return (
     <div className="container mx-auto space-y-7 px-5">
     <h2 className="text-xl text-center">Popular Brands</h2>
@@ -54,7 +55,7 @@ export default async function Brands() {
         modules={[FreeMode, Pagination, Navigation]}
       >
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="1" className="w-full h-24 object-contain" src="./image/glock-logo.png" alt="" />
+          <Image data-tooltip-target="1" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="1" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             glock
@@ -63,7 +64,7 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="2" className="w-full h-24 object-contain" src="./image/zeiss-logo.png" alt="" />
+          <Image data-tooltip-target="2" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="2" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             zeiss
@@ -72,7 +73,7 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="3" className="w-full h-24 object-contain" src="./image/trijicon_logo.png" alt="" />
+          <Image data-tooltip-target="3" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="3" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             trijicon
@@ -81,7 +82,7 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="4" className="w-full h-24 object-contain" src="./image/buck-knives-logo.png" alt="" />
+          <Image data-tooltip-target="4" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="4" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2  transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             buck-knives
@@ -90,8 +91,8 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="5" className="w-full h-24 object-contain" src="./image/tikka-logo-stacked.png"
-            alt="" />
+          <Image data-tooltip-target="5" className="w-full h-24 object-contain" src=""
+            fill alt="" />
           <div id="5" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2  transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             tikka
@@ -100,7 +101,7 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="6" className="w-full h-24 object-contain" src="./image/mcarbo-logo.png" alt="" />
+          <Image data-tooltip-target="6" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="6" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             mcarbo
@@ -109,8 +110,8 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="7" className="w-full h-24 object-contain" src="./image/outstandards-logo.png"
-            alt="" />
+          <Image data-tooltip-target="7" className="w-full h-24 object-contain" src=""
+            fill alt="" />
           <div id="7" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             outstandards
@@ -119,8 +120,8 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="8" className="w-full h-24 object-contain" src="./image/faxon-firearms-logo.png"
-            alt="" />
+          <Image data-tooltip-target="8" className="w-full h-24 object-contain" src=""
+            fill alt="" />
           <div id="8" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2  transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             faxon-firearms
@@ -129,8 +130,8 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="9" className="w-full h-24 object-contain" src="./image/drummond-shooting-logo.png"
-            alt="" />
+          <Image data-tooltip-target="9" className="w-full h-24 object-contain" src=""
+            fill alt="" />
           <div id="9" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             drummond-shooting
@@ -139,8 +140,8 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="10" className="w-full h-24 object-contain" src="./image/hornady-logo-vertical.png"
-            alt="" />
+          <Image data-tooltip-target="10" className="w-full h-24 object-contain" src=""
+            fill alt="" />
           <div id="10" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             hornady
@@ -149,7 +150,7 @@ export default async function Brands() {
         </SwiperSlide>
 
         <SwiperSlide className="block relative cursor-pointer">
-          <img data-tooltip-target="11" className="w-full h-24 object-contain" src="./image/keltec-logo.png" alt="" />
+          <Image data-tooltip-target="11" className="w-full h-24 object-contain" src="" fill alt="" />
           <div id="11" role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
             keltec

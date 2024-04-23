@@ -10,12 +10,21 @@ import PopularProducts from "@modules/home/components/popular-products";
 import NewProducts from "@modules/home/components/new-products";
 import FeaturedProducts from "@modules/home/components/featured-products";
 import Brands from "@modules/home/components/brands";
+import { Product } from "@medusajs/medusa";
+import { ProductCollectionWithPreviews } from "types/global";
+import { cache } from "react";
+import { getProductsList } from "@lib/data";
+
 
 export default async function Home({
   params: { countryCode },
 }: {
   params: { countryCode: string }
 }) {
+
+  const result = await getProductsList({countryCode: countryCode});
+  const products = result.response.products;  
+
   return (
     <>
       <div className="container mx-auto px-5 pb-20 mt-5">
@@ -43,7 +52,7 @@ export default async function Home({
         </div>
       </div>
 
-      <FeaturedProducts />
+      <FeaturedProducts products={products} />
 
       <NewProducts />
 
@@ -52,13 +61,13 @@ export default async function Home({
       <div className="container mx-auto px-5 pb-10 mt-5 md:hidden">
         <div className="grid gap-5 mt-5">
           <Link href="#">
-            <img className="max-h-100 w-full h-full" src="./image/optics-1920x1080__77183.jpg" alt="" />
+            <Image className="max-h-100 w-full h-full" src="" fill alt="" />
           </Link>
           <Link href="#">
-            <img className="max-h-100 w-full h-full" src="./image/firearms.jpg" alt="" />
+            <Image className="max-h-100 w-full h-full" src="" fill alt="" />
           </Link>
           <Link href="#">
-            <img className="max-h-100 w-full h-full" src="./image/lifestyle-1920x1080.jpg" alt="" />
+            <Image className="max-h-100 w-full h-full" src="" fill alt="" />
           </Link>
         </div>
       </div>

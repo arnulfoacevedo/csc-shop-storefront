@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 
@@ -10,7 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 
-export default async function PopularProducts() {
+export default function PopularProducts() {
   return (
     <div className="container mx-auto px-5 pb-10">
     <h2 className="text-xl text-center py-7">Most Popular Products</h2>
@@ -58,7 +59,7 @@ export default async function PopularProducts() {
       >
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -127,7 +128,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer
@@ -199,7 +200,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -268,7 +269,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -337,7 +338,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -406,7 +407,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -475,7 +476,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer
@@ -546,7 +547,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -615,7 +616,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>
@@ -684,7 +685,7 @@ export default async function PopularProducts() {
 
         <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5">
           <Link href="#" className="block w-full h-60 sm:h-40 lg:h-60">
-            <img className="w-full h-full object-contain" src="./image/e9mmb1-50-001__04234.jpg" alt="" />
+            <Image className="w-full h-full object-contain" src="" fill alt="" />
           </Link>
           <div className="featured mt-3">
             <h3 className="text-xss font-bold">Sig Sauer</h3>

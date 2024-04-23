@@ -4,7 +4,6 @@ import Image from "next/image";
 import visaImg from "@/public/image/visa.png";
 import cardImg from "@/public/image/mastercard-icon-512x395-qoejqj7z.png";
 import expressImg from "@/public/image/american-express-icon-12.jpg";
-import exp from "constants";
 
 const Footer = () => {
     return (
@@ -60,7 +59,7 @@ const Footer = () => {
                 <div className="container mx-auto text-white py-7 px-5">
                     <div className="flex flex-col md:flex-row justify-between text-center md:text-start items-center gap-6">
                         <div className="footer-link text-[13px]/5">
-                            <p>© 2023 CSC - Canada's Gun Shop </p>
+                            <p>© 2023 CSC - Canada&quot;s Gun Shop </p>
                             <Link href="#" className="underline decoration-white">Manage Website DatLink Collection Preferences</Link>
                         </div>
 
