@@ -58,6 +58,7 @@ export type ProductCategoryWithChildren = Omit<
 }
 
 export type MenuItem = {
+  handle: string;
   title: string;
   submenu?: MenuItem[];
 }

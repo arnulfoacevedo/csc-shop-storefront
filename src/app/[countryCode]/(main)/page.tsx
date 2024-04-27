@@ -54,11 +54,11 @@ export default async function Home({
 
       <FeaturedProducts products={products} />
 
-      <NewProducts />
+      <NewProducts products={products} />
 
-      <PopularProducts />
+      <PopularProducts products={products} />
 
-      <div className="container mx-auto px-5 pb-10 mt-5 md:hidden">
+      {/* <div className="container mx-auto px-5 pb-10 mt-5 md:hidden">
         <div className="grid gap-5 mt-5">
           <Link href="#">
             <Image className="max-h-100 w-full h-full" src="" fill alt="" />
@@ -70,7 +70,7 @@ export default async function Home({
             <Image className="max-h-100 w-full h-full" src="" fill alt="" />
           </Link>
         </div>
-      </div>
+      </div> */}
 
       <Brands />
 

@@ -95,8 +95,9 @@ export async function addToCart({
   }
 
   try {
-    await addItem({ cartId: cart.id, variantId, quantity })
+    const res = await addItem({ cartId: cart.id, variantId, quantity })
     revalidateTag("cart")
+    return res;
   } catch (e) {
     return "Error adding item to cart"
   }

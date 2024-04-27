@@ -5,6 +5,7 @@ import { useFormState } from "react-dom"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import { signUp } from "@modules/account/actions"
 import Link from "next/link"
+import { Button } from "@medusajs/ui"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -238,9 +239,14 @@ const Register = ({ setCurrentView }: Props) => {
             </div>
           </div>
         </div>
-        <div className="mt-16">
-          <button type="submit" className="btn btn-yellow w-full md:w-auto px-8">Create Account</button>
-          <Link href="#" className="underline" onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}>Do you have alrady an account?</Link>
+        <div className="mt-3">
+          <Button 
+                className="btn btn-yellow inline-block mt-5 px-6 py-3"
+                variant="secondary"
+                onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+              >Create Account
+          </Button>
+          <Link href="#" className="underline ml-5" onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}>Do you have already an account?</Link>
         </div>
       </form>
     </>

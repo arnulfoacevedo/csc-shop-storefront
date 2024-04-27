@@ -3,6 +3,7 @@ import { useFormState } from "react-dom"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import { logCustomerIn } from "@modules/account/actions"
 import Link from "next/link"
+import { Button } from "@medusajs/ui"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
@@ -41,11 +42,12 @@ const Login = ({ setCurrentView }: Props) => {
               <li>Access your order history</li>
               <li>Track new orders</li>
               <li>Save items to your lists</li>
-            </ul>
-
-            <Link className="btn btn-yellow inline-block mt-5 px-6" href="#" onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}>
-              Create Account
-            </Link>
+            </ul>   
+            <Button 
+                className="btn btn-yellow inline-block mt-5 px-6 py-3"
+                variant="secondary"
+                onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+              >Create Account</Button>
           </div>
           <form action={formAction}
             className="contact order-first md:order-none md:col-span-2 bg-brand-gray-200 border border-brand-gray-200 space-y-7 p-5">
@@ -62,7 +64,10 @@ const Login = ({ setCurrentView }: Props) => {
               <Link className="underline" href="/forgot">
                 Forgot your password?
               </Link>
-              <input type="submit" className="btn btn-yellow px-8" defaultValue="Sign in" />
+              <Button 
+                className="btn btn-yellow py-3 px-5"
+                variant="secondary"
+              >Sign in</Button>
             </div>
           </form>
         </div>

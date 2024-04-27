@@ -4,18 +4,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Keyboard, Mousewheel } from 'swiper/modules';
 import Link from "next/link";
 import Image from "next/image";
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState } from 'react';
 
 import logoImg from "@/public/image/logo.png";
+import Img from "@/public/image/mono.jpg"
 
-interface HiddenBarProps {
-    closeBar: MouseEventHandler,
-    togglebar: boolean
-}
+export const HiddenBar = () => {
+    const [togglesearch, setTogglesearch] = useState(true);
 
-export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
+    const toggleSearchBar = () => {
+        setTogglesearch(togglesearch ? false : true);
+    }
+
     return (
-        <div className={"menu absolute left-0 w-full bg-white text-brand-gray-300 transition duration-500 ease-linear z-30" + (togglebar ? " -translate-y-full" : "")}>
+        <div className={"menu absolute left-0 w-full bg-white text-brand-gray-300 transition duration-500 ease-linear z-30" + (togglesearch ? " -translate-y-full" : "")}>
         <div className="fixed top-0 left-0 w-full flex items-center bg-brand-gray-100 gap-5 p-4 z-30">
             <Link href="#" className="w-28">
                 <Image src={logoImg} alt="" />
@@ -41,7 +43,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                 </svg>
             </form>
 
-            <button type="button" className="menuBtn bg-white/50" onClick={closeBar}>
+            <button type="button" className="menuBtn bg-white/50" onClick={toggleSearchBar}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -103,7 +105,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -124,7 +126,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -145,7 +147,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -166,7 +168,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -185,7 +187,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -206,7 +208,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -227,7 +229,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -248,7 +250,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -269,7 +271,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle
@@ -290,7 +292,7 @@ export const HiddenBar = ({closeBar, togglebar}: HiddenBarProps) => {
                         <Link href="#"
                             className="block border border-brand-gray-50 hover:border-brand-yellow-100 rounded space-y-3 p-6">
                             <div className="h-48">
-                                <Image className="w-full h-full object-cover" src="" fill alt="" />
+                                <Image className="w-full h-full object-cover" src={Img} fill alt="" />
                             </div>
                             <p>
                                 Tikka T3x Compact Tactical Rifle

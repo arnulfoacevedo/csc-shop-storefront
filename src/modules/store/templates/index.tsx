@@ -5,35 +5,49 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 import PaginatedProducts from "./paginated-products"
+import { FilterBar } from "../components/filter-bar"
+import { listCategories } from "@lib/data"
 
-const StoreTemplate = ({
-  sortBy,
-  page,
-  countryCode,
+const StoreTemplate = async ({
+    sortBy,
+    page,
+    limit,
+    countryCode,
+    categoryHandle
 }: {
-  sortBy?: SortOptions
-  page?: string
-  countryCode: string
+    sortBy?: SortOptions
+    page?: string
+    limit?: number
+    countryCode: string
+    categoryHandle: string
 }) => {
-  const pageNumber = page ? parseInt(page) : 1
+    const pageNumber = page ? parseInt(page) : 1
+    const limitNumber = limit ? limit : 12
+    const categories = await listCategories();  
+    const category = categories.find(item => item.handle == categoryHandle);
 
-  return (
-    <div className="flex flex-col small:flex-row small:items-start py-6 content-container" data-testid="category-container">
-      <RefinementList sortBy={sortBy || "created_at"} />
-      <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All products</h1>
+    return (
+        <div className="container mx-auto mt-5 px-5">
+            <div className="grid md:grid-cols-5 gap-5">
+                <RefinementList sortBy={sortBy || "created_at"} />
+                <div className="md:col-span-4">
+                    <div className="md:flex items-center space-y-2 md:space-x-2 md:mt-7">
+                        <h1 className="text-[28px]/8">{category?.name}</h1>
+                    </div>
+                    <FilterBar />
+                    <Suspense fallback={<SkeletonProductGrid />}>
+                        <PaginatedProducts
+                            sortBy={sortBy || "created_at"}
+                            page={pageNumber}
+                            limit={limitNumber}
+                            countryCode={countryCode}
+                            categoryId={category?.id}
+                        />
+                    </Suspense>
+                </div>
+            </div>
         </div>
-        <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sortBy || "created_at"}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
-        </Suspense>
-      </div>
-    </div>
-  )
+    )
 }
 
 export default StoreTemplate

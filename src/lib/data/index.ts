@@ -736,19 +736,20 @@ export const getProductsByCategoryHandle = cache(async function ({
   response: { products: ProductPreviewType[]; count: number }
   nextPage: number | null
 }> {
+  
   const { id } = await getCategoryByHandle([handle]).then(
     (res) => res.product_categories[0]
   )
-
+  
   const { response, nextPage } = await getProductsList({
     pageParam,
     queryParams: { category_id: [id] },
     countryCode,
   })
-    .then((res) => res)
-    .catch((err) => {
-      throw err
-    })
+  .then((res) => res)
+  .catch((err) => {
+    throw err
+  })
 
   return {
     response,

@@ -28,12 +28,13 @@ export const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
         };
     }, [dropdown]);
 
-    const toggleDropdown = () => {
+    const toggleDropdown = () => {        
         setDropdown((prev) => !prev);
     };
     
     const closeDropdown = () => {
-        dropdown && setDropdown(false);
+        
+        setDropdown(false);
     };
 
     const onMouseDown = () => {
@@ -71,7 +72,7 @@ export const MenuItems = ({ items, depthLevel }: MenuItemsProps) => {
                     />
                 </>
             ) : (
-                <Link href="#">{items.title}</Link>
+                <Link href={"/store/" + items.handle} onClick={closeDropdown}>{items.title}</Link>
             )}
         </div>
     )
