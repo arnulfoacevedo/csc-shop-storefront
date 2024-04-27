@@ -8,7 +8,7 @@ interface Props {
     variantTitle: string
 }
 
-export default function addCartForm ({addToCart, variantTitle}: Props) {
+export default function AddCartForm ({addToCart, variantTitle}: Props) {
     const [quantity, setQuantity] = useState(1);
     const [isAdding, setIsAdding] = useState(false);
 
@@ -19,7 +19,6 @@ export default function addCartForm ({addToCart, variantTitle}: Props) {
     }
 
     const handleAddToCart = async () => {
-
         setIsAdding(true);
 
         const res = await addToCart(quantity)

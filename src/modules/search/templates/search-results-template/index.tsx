@@ -44,12 +44,12 @@ const SearchResultsTemplate = ({
           <>
             <RefinementList sortBy={sortBy || "created_at"} search />
             <div className="content-container">
-              <PaginatedProducts
+              {/* <PaginatedProducts
                 productsIds={ids}
                 sortBy={sortBy}
                 page={pageNumber}
                 countryCode={countryCode}
-              />
+              /> */}
             </div>
           </>
         ) : (
