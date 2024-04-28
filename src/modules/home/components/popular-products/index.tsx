@@ -64,18 +64,18 @@ export default function PopularProducts({ products }: Props) {
             products.map((product, index) => (
 
               <SwiperSlide className="relative bg-white border border-brand-gray-200 p-5" key={index}>
-                <Link href={"/products/" + product.id} className="block relative w-full h-60 sm:h-40 lg:h-60">
+                <Link href={"/product/" + product.handle} className="block relative w-full h-60 sm:h-40 lg:h-60">
                   <Image className="w-full h-full object-contain" fill src={product.thumbnail?product.thumbnail:""} alt="" />
                   <button type="button" className="btn-red">Sale</button>
                 </Link>
                 <div className="featured mt-3">
-                  <h3 className="text-xss font-bold">Sig Sauer</h3>
-                  <Link href={"/products/" + product.id}>
+                  {/* <h3 className="text-xss font-bold">Sig Sauer</h3> */}
+                  <Link href={"/product/" + product.handle}>
                     {product.title}
                   </Link>
                 </div>
                 <div className="mt-7">
-                  <p className="text-brand-red-100 text-sm">Was: <s>{product.price?.original_price}</s></p>
+                  {/* <p className="text-brand-red-100 text-sm">Was: <s>{product.price?.original_price}</s></p> */}
                   <h2 className="font-bold text-xl/none border-b border-brand-gray-200 pb-4">{product.price?.calculated_price}</h2>
                   <div className="mt-6 lg:mt-8 space-y-2">
                     <Link className="btn btn-yellow"

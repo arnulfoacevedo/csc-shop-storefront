@@ -10,6 +10,10 @@ const nextConfig = withStoreConfig({
   images: {
     remotePatterns: [
       {
+        protocol: "https",
+        hostname: "csc-backend-app-htwvc.ondigitalocean.app",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
       },
