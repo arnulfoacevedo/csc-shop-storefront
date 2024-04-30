@@ -10,13 +10,14 @@ import {
   StorePostCustomersCustomerReq,
   StorePostCustomersReq,
 } from "@medusajs/medusa"
+
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { cache } from "react"
 
 import sortProducts from "@lib/util/sort-products"
 import transformProductPreview from "@lib/util/transform-product-preview"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { ProductCategoryWithChildren, ProductPreviewType } from "types/global"
+import { NavigationItem, ProductCategoryWithChildren, ProductPreviewType } from "types/global"
 
 import { medusaClient } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
@@ -755,4 +756,28 @@ export const getProductsByCategoryHandle = cache(async function ({
     response,
     nextPage,
   }
+})
+
+
+export const getCategoryStack = cache(async (categoryHandle: string): Promise<NavigationItem[]> => {
+  
+  const categories = await listCategories();
+  const selectedCategory = categories.find(item => item.handle == categoryHandle);
+
+  const path: NavigationItem[] = [];
+
+  function traverseParentCategories(category: ProductCategory) {
+    if (category.parent_category_id) {
+      const parentCategory = categories.find(cat => cat.id === category.parent_category_id);
+      parentCategory && traverseParentCategories(parentCategory);
+    }
+    category.name && path.push({
+      id: category.id,
+      name: category.name,
+      handle: category.handle
+    });
+  }
+
+  selectedCategory && traverseParentCategories(selectedCategory);
+  return path;
 })

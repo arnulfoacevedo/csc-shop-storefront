@@ -199,7 +199,7 @@ const CartDropdown = ({
                                     </p>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4 mt-1.5">
-                                    <LocalizedClientLink href="#">
+                                    <LocalizedClientLink href="/cart">
                                         <Button type="button" variant="secondary" className="btn btn-white-outline !block h-10 w-full">View Cart</Button>
                                     </LocalizedClientLink>
                                     <Button type="button" variant="secondary" className="btn btn-yellow h-10 w-full">Check out</Button>

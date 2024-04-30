@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import StoreTemplate from "@modules/store/templates"
+import { getCategoryStack } from "@lib/data"
 
 export const metadata: Metadata = {
   title: "Store",
@@ -22,6 +23,7 @@ type Params = {
 
 export default async function StorePage({ searchParams, params }: Params) {
   const { sortBy, page, limit } = searchParams  
+  const categoryStack = await getCategoryStack(params.categoryHandle)
 
   return (
     <StoreTemplate
@@ -30,6 +32,7 @@ export default async function StorePage({ searchParams, params }: Params) {
       limit={limit}
       countryCode={params.countryCode}
       categoryHandle = {params.categoryHandle}
+      categoryStack={categoryStack}
     />
   )
 }

@@ -3287,7 +3287,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: 0px !important;
+  width: 5px !important;
 }
 
 .swiper-pagination-8 .swiper-pagination-bullet {

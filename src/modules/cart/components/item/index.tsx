@@ -49,7 +49,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
     <Table.Row className="w-full" data-testid="product-row">
       <Table.Cell className="!pl-0 p-4 w-24">
         <LocalizedClientLink
-          href={`/products/${handle}`}
+          href={`/product/${handle}`}
           className={clx("flex", {
             "w-16": type === "preview",
             "small:w-24 w-12": type === "full",
@@ -65,9 +65,14 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       </Table.Cell>
 
       {type === "full" && (
+        <Table.Cell className="hidden small:table-cell text-base">
+          <LineItemUnitPrice item={item} region={region} style="tight" />
+        </Table.Cell>
+      )}
+
+      {type === "full" && (
         <Table.Cell>
           <div className="flex gap-2 items-center w-28">
-            <DeleteButton id={item.id} data-testid="product-delete-button" />
             <CartItemSelect
               value={item.quantity}
               onChange={(value) => changeQuantity(parseInt(value.target.value))}
@@ -96,17 +101,11 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
         </Table.Cell>
       )}
 
-      {type === "full" && (
-        <Table.Cell className="hidden small:table-cell">
-          <LineItemUnitPrice item={item} region={region} style="tight" />
-        </Table.Cell>
-      )}
 
-      <Table.Cell className="!pr-0">
+
+      <Table.Cell className="!pr-0 text-base">
         <span
-          className={clx("!pr-0", {
-            "flex flex-col items-end h-full justify-center": type === "preview",
-          })}
+          className={"!pr-0 flex justify-end"}
         >
           {type === "preview" && (
             <span className="flex gap-x-1 ">
@@ -115,7 +114,9 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             </span>
           )}
           <LineItemPrice item={item} region={region} style="tight" />
+          <DeleteButton id={item.id} data-testid="product-delete-button" />
         </span>
+
       </Table.Cell>
     </Table.Row>
   )

@@ -59,9 +59,9 @@ const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             </option>
             {children}
           </select>
-          <span className="absolute flex pointer-events-none justify-end w-8 group-hover:animate-pulse">
+          {/* <span className="absolute flex pointer-events-none justify-end w-8 group-hover:animate-pulse">
             <ChevronDown />
-          </span>
+          </span> */}
         </IconBadge>
       </div>
     )

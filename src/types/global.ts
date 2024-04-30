@@ -62,3 +62,9 @@ export type MenuItem = {
   title: string;
   submenu?: MenuItem[];
 }
+
+export type NavigationItem = {
+   id: string;
+   name: string;
+   handle: string;
+}

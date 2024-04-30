@@ -1,4 +1,4 @@
-import { getProductsListWithSort, getRegion, listCategories } from "@lib/data"
+import { getProductsListWithSort, getRegion } from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
@@ -28,7 +28,6 @@ export default async function PaginatedProducts({
   countryCode: string
 }) {
   const region = await getRegion(countryCode)
-  const categories = await listCategories();  
 
   if (!region) {
     return null
