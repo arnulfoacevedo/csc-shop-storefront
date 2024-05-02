@@ -72,7 +72,7 @@ const GiftCardPaymentButton = () => {
   }
 
   return (
-    <Button onClick={handleOrder} isLoading={submitting}>
+    <Button onClick={handleOrder} isLoading={submitting} variant="secondary" className="btn btn-yellow">
       Place order
     </Button>
   )
@@ -167,6 +167,8 @@ const StripePaymentButton = ({
         disabled={disabled || notReady}
         onClick={handlePayment}
         size="large"
+        variant="secondary" 
+        className="btn btn-yellow"
         isLoading={submitting}
         data-testid={dataTestId}
       >
@@ -270,6 +272,8 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         onClick={handlePayment}
         size="large"
         data-testid="submit-order-button"
+        variant="secondary" 
+        className="btn btn-yellow"
       >
         Place order
       </Button>

@@ -97,7 +97,7 @@ const CartDropdown = ({
                 >
                     <Popover.Panel
                         static
-                        className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base p-3"
+                        className="hidden small:block absolute top-11 right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base p-3 account-shape"
                         data-testid="nav-cart-dropdown"
                     >
                         <div className="py-2 flex items-center justify-center">
@@ -117,7 +117,7 @@ const CartDropdown = ({
                                                 data-testid="cart-item"
                                             >
                                                 <LocalizedClientLink
-                                                    href={`/products/${item.variant.product.handle}`}
+                                                    href={`/product/${item.variant.product.handle}`}
                                                     className="w-24"
                                                 >
                                                     <Thumbnail thumbnail={item.thumbnail} size="square" />
@@ -128,7 +128,7 @@ const CartDropdown = ({
                                                             <div className="flex flex-col overflow-ellipsis whitespace-nowrap mr-4 w-[180px]">
                                                                 <h3 className="text-base-regular overflow-hidden text-ellipsis">
                                                                     <LocalizedClientLink
-                                                                        href={`/products/${item.variant.product.handle}`}
+                                                                        href={`/product/${item.variant.product.handle}`}
                                                                         data-testid="product-link"
                                                                     >
                                                                         {item.title}
@@ -202,7 +202,9 @@ const CartDropdown = ({
                                     <LocalizedClientLink href="/cart">
                                         <Button type="button" variant="secondary" className="btn btn-white-outline !block h-10 w-full">View Cart</Button>
                                     </LocalizedClientLink>
-                                    <Button type="button" variant="secondary" className="btn btn-yellow h-10 w-full">Check out</Button>
+                                    <LocalizedClientLink href="/checkout?step=address">
+                                        <Button type="button" variant="secondary" className="btn btn-yellow h-10 w-full">Check out</Button>
+                                    </LocalizedClientLink>
                                 </div>
                             </>
                         ) : (
