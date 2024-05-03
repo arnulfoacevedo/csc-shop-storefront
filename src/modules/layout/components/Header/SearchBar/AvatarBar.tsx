@@ -63,13 +63,13 @@ export const AvatarBar = ({ customer }: Props) => {
             }
             <div className={"avatar-menu absolute right-0 top-10 w-36 text-brand-gray-100 text-sm bg-white z-20" + (toggleavatar ? " hidden" : "")}>
                 <div className="relative account-shape flex flex-col space-y-2 p-3">
-                    <Link className="underline link-tansition" href="/yourorder" onClick={toggleAvatar}>Orders</Link>
-                    <Link className="underline link-tansition" href="#" onClick={toggleAvatar}>Messages</Link>
-                    <Link className="underline link-tansition" href="/address" onClick={toggleAvatar}>Addresses</Link>
-                    <Link className="underline link-tansition" href="/payment" onClick={toggleAvatar}>Payment Methods</Link>
-                    <Link className="underline link-tansition" href="/yourlist" onClick={toggleAvatar}>Your Lists</Link>
-                    <Link className="underline link-tansition" href="/recently" onClick={toggleAvatar}>Recently Viewed</Link>
-                    <Link className="underline link-tansition" href="#" onClick={toggleAvatar}>Account Settings</Link>
+                    <Link className="underline link-tansition" href="/account/orders" onClick={toggleAvatar}>Orders</Link>
+                    <Link className="underline link-tansition" href="/account/messages" onClick={toggleAvatar}>Messages</Link>
+                    <Link className="underline link-tansition" href="/account/addresses" onClick={toggleAvatar}>Addresses</Link>
+                    <Link className="underline link-tansition" href="/account/payment" onClick={toggleAvatar}>Payment Methods</Link>
+                    <Link className="underline link-tansition" href="/account/list" onClick={toggleAvatar}>Your Lists</Link>
+                    <Link className="underline link-tansition" href="/account/recently" onClick={toggleAvatar}>Recently Viewed</Link>
+                    <Link className="underline link-tansition" href="/account/profile" onClick={toggleAvatar}>Account Settings</Link>
                     <Link className="underline link-tansition" href="#" onClick={handleLogout}>Sign out</Link>
                 </div>
             </div>

@@ -6,9 +6,6 @@ import Image from "next/image";
 export default function RecentlyView() {
   return (
     <>
-      <RouteBar routeName="Recently Viewed Items" />
-      <div className="container lg:max-w-[1040px] mx-auto mt-12 px-5">
-        <LinkBar routeName="Recently Viewed" />
         <div className="space-y-5 mt-10">
           <div
             className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-white border border-brand-gray-200 gap-5 p-5">
@@ -127,7 +124,6 @@ export default function RecentlyView() {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }

@@ -20,7 +20,7 @@ const NavBar = async ({menuData}: Props) => {
                     <p className="whitespace-nowrap cursor-pointer hover:text-brand-yellow-100 transition-colors ease-linear">
                         Need Help? +1 (403) 451-1777
                     </p>
-                    <Link className="whitespace-nowrap hover:text-brand-yellow-100 transition-colors ease-linear" href="/yourlist">Your Lists</Link>
+                    <Link className="whitespace-nowrap hover:text-brand-yellow-100 transition-colors ease-linear" href="/account/list">Your Lists</Link>
                 </div>
             </div>
         </div>

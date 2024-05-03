@@ -213,12 +213,12 @@ const CartDropdown = ({
                                     <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
                                         <span>0</span>
                                     </div>
-                                    <span>Your shopping bag is empty.</span>
+                                    <span>Your Cart is empty.</span>
                                     <div>
                                         <LocalizedClientLink href="/store/all">
                                             <>
                                                 <span className="sr-only">Go to all products page</span>
-                                                <Button onClick={close}>Explore products</Button>
+                                                <Button onClick={close} variant="secondary" className="btn btn-yellow">Explore products</Button>
                                             </>
                                         </LocalizedClientLink>
                                     </div>

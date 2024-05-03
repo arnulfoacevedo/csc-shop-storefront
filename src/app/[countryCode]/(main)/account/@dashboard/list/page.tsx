@@ -4,9 +4,6 @@ import RouteBar from "@modules/account/RouteBar";
 export default function YourList() {
   return (
     <>
-      <RouteBar routeName="Your Lists" />
-      <div className="container lg:max-w-26 mx-auto mt-12 px-5">
-        <LinkBar routeName="Your Lists" />
         <div className="text-sm space-y-5 mt-10">
           <div className="grid grid-cols-3 font-semibold bg-white border border-brand-gray-200">
             <div className="py-5 pl-5">
@@ -28,7 +25,6 @@ export default function YourList() {
           </div>
           <button type="button" className="modulBtn btn btn-yellow w-full md:w-auto ml-auto px-8">New List</button>
         </div>
-      </div>
     </>
   );
 }

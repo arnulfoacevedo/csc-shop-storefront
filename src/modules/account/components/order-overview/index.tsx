@@ -9,7 +9,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const OrderOverview = ({ orders }: { orders: Order[] }) => {
   if (orders?.length) {
     return (
-      <div className="flex flex-col gap-y-8 w-full">
+      <div className="flex flex-col gap-y-8 w-full p-5 bg-white">
         {orders.map((o) => (
           <div
             key={o.id}
@@ -23,22 +23,16 @@ const OrderOverview = ({ orders }: { orders: Order[] }) => {
   }
 
   return (
-    <div
-      className="w-full flex flex-col items-center gap-y-4"
-      data-testid="no-orders-container"
-    >
-      <h2 className="text-large-semi">Nothing to see here</h2>
-      <p className="text-base-regular">
-        You don&apos;t have any orders yet, let us change that {":)"}
-      </p>
-      <div className="mt-4">
-        <LocalizedClientLink href="/" passHref>
-          <Button data-testid="continue-shopping-button">
-            Continue shopping
-          </Button>
-        </LocalizedClientLink>
-      </div>
-    </div>
+        <div className="flex items-center bg-[#dfdfdf] rounded-md space-x-4 mt-10 py-3 px-4">
+          <svg className="shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z">
+            </path>
+          </svg>
+          <p className="text-sm">
+            You have not placed any orders with us. When you do, their status will appear on this page.
+          </p>
+        </div>
+
   )
 }
 

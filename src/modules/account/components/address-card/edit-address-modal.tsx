@@ -16,6 +16,7 @@ import {
 import Spinner from "@modules/common/icons/spinner"
 import { useFormState } from "react-dom"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
+import Link from "next/link"
 
 type EditAddressProps = {
   region: Region
@@ -66,53 +67,26 @@ const EditAddress: React.FC<EditAddressProps> = ({
     <>
       <div
         className={clx(
-          "border rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-colors",
+          "relative bg-white border border-brand-gray-200 space-y-2 p-5 pb-16",
           {
             "border-gray-900": isActive,
           }
         )}
         data-testid="address-container"
       >
-        <div className="flex flex-col">
-          <Heading className="text-left text-base-semi" data-testid="address-name">
-            {address.first_name} {address.last_name}
-          </Heading>
-          {address.company && (
-            <Text className="txt-compact-small text-ui-fg-base" data-testid="address-company">
-              {address.company}
-            </Text>
-          )}
-          <Text className="flex flex-col text-left text-base-regular mt-2">
-            <span data-testid="address-address">
-              {address.address_1}
-              {address.address_2 && <span>, {address.address_2}</span>}
-            </span>
-            <span data-testid="address-postal-city">
-              {address.postal_code}, {address.city}
-            </span>
-            <span data-testid="address-province-country">
-              {address.province && `${address.province}, `}
-              {address.country_code?.toUpperCase()}
-            </span>
-          </Text>
-        </div>
-        <div className="flex items-center gap-x-4">
-          <button
-            className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
-            onClick={open}
-            data-testid="address-edit-button"
-          >
-            <Edit />
-            Edit
-          </button>
-          <button
-            className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
-            onClick={removeAddress}
-            data-testid="address-delete-button"
-          >
-            {removing ? <Spinner /> : <Trash />}
-            Remove
-          </button>
+        <h3>{address.first_name} {address.last_name}</h3>
+        <ul>
+          <li>Home</li>
+          <li>{address.address_1}</li>
+          <li></li>
+          <li>{address.address_2}</li>
+          <li>{address.country?.display_name}</li>
+        </ul>
+        <p className="text-sm">Phone: <span>{address.phone}</span></p>
+        <div className="absolute bottom-6 left-5 flex items-center text-sm space-x-1">
+          <Link href="#" className="underline link-tansition" onClick={open}>Edit</Link>
+          <span>|</span>
+          <button type="button" className="underline flex" onClick={removeAddress}>Delete {removing ? <Spinner /> : ""}</button>
         </div>
       </div>
 
@@ -221,7 +195,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               >
                 Cancel
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <SubmitButton data-testid="save-button" className="btn btn-yellow" variant="secondary">Save</SubmitButton>
             </div>
           </Modal.Footer>
         </form>

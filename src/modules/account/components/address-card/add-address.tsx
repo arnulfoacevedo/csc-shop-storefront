@@ -12,6 +12,7 @@ import Input from "@modules/common/components/input"
 import Modal from "@modules/common/components/modal"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import { addCustomerShippingAddress } from "@modules/account/actions"
+import Link from "next/link"
 
 const AddAddress = ({ region }: { region: Region }) => {
   const [successState, setSuccessState] = useState(false)
@@ -42,14 +43,16 @@ const AddAddress = ({ region }: { region: Region }) => {
 
   return (
     <>
-      <button
-        className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
-        onClick={open}
-        data-testid="add-address-button"
-      >
-        <span className="text-base-semi">New address</span>
-        <Plus />
-      </button>
+      <div className="group relative flex items-center justify-center bg-white border border-brand-gray-200 p-5">
+        <Link href="#" onClick={open}
+          className="flex flex-col items-center group-hover:text-brand-yellow-100 transition-colors ease-linear gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+            stroke="currentColor" className="w-8 h-8">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          <span>New Address</span>
+        </Link>
+      </div>
 
       <Modal isOpen={state} close={close} data-testid="add-address-modal">
         <Modal.Title>
@@ -141,7 +144,7 @@ const AddAddress = ({ region }: { region: Region }) => {
               >
                 Cancel
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <SubmitButton data-testid="save-button" className="btn btn-yellow" variant="secondary">Save</SubmitButton>
             </div>
           </Modal.Footer>
         </form>
