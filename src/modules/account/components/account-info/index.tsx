@@ -121,8 +121,9 @@ const AccountInfo = ({
             <div>{children}</div>
             <div className="flex items-center justify-end mt-2">
               <Button
+                variant="secondary"
                 isLoading={pending}
-                className="w-full small:max-w-[140px]"
+                className="btn btn-yellow w-full small:max-w-[140px]"
                 type="submit"
                 data-testid="save-button"
               >
