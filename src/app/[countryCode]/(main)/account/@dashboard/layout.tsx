@@ -1,11 +1,7 @@
 import LinkBar from "@modules/account/LinkBar";
 import RouteBar from "@modules/account/RouteBar";
 
-type Props = {
-    params: { countryCode: string,  }
-}
-export default async function PageLayout(props: { children: React.ReactNode, params: Props }) {
-    // console.log(usePathname());
+export default function DashboardLayout(props: { children: React.ReactNode }) {
     
     return (
         <>

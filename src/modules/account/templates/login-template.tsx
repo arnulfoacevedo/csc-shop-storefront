@@ -12,7 +12,7 @@ export enum LOGIN_VIEW {
 
 const LoginTemplate = () => {
   const [currentView, setCurrentView] = useState("sign-in")
-
+    
   return (
     <>
       {currentView === "sign-in" ? (

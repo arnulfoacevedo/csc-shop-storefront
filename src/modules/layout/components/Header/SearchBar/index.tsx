@@ -36,7 +36,7 @@ const SearchBar = async () => {
     //     document.body.classList.toggle('overflow-hidden')
     // }
     
-    const customer = await getCustomer().catch(() => null)
+    const customer = await getCustomer().catch(() => null)       
 
     return (
         <>

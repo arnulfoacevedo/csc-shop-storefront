@@ -5,12 +5,14 @@ import Link from "next/link"
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Customer } from "@medusajs/medusa"
+// import { useRouter } from "next/router";
 
 interface Props {
     customer: Omit<Customer, "password_hash"> | null
 }
 
 export const AvatarBar = ({ customer }: Props) => {
+    // const router = useRouter()
     const [toggleavatar, setToggleavatar] = useState(true);
 
     const avatarRef = React.useRef<HTMLDivElement>(null);
@@ -18,6 +20,7 @@ export const AvatarBar = ({ customer }: Props) => {
 
     const handleLogout = async () => {
         await signOut(countryCode)
+        // router.push('/account')
         toggleAvatar();
     }
 
@@ -36,7 +39,7 @@ export const AvatarBar = ({ customer }: Props) => {
             document.removeEventListener("mousedown", handler);
         };
     }, []);
-
+    
     return (
         <div className="relative hidden md:block" ref={avatarRef}>
             {
@@ -63,7 +66,7 @@ export const AvatarBar = ({ customer }: Props) => {
             }
             <div className={"avatar-menu absolute right-0 top-10 w-36 text-brand-gray-100 text-sm bg-white z-20" + (toggleavatar ? " hidden" : "")}>
                 <div className="relative account-shape flex flex-col space-y-2 p-3">
-                    <Link className="underline link-tansition" href="/account/orders" onClick={toggleAvatar}>Orders</Link>
+                    <Link className="underline link-tansition" href="/account" onClick={toggleAvatar}>Orders</Link>
                     <Link className="underline link-tansition" href="/account/messages" onClick={toggleAvatar}>Messages</Link>
                     <Link className="underline link-tansition" href="/account/addresses" onClick={toggleAvatar}>Addresses</Link>
                     <Link className="underline link-tansition" href="/account/payment" onClick={toggleAvatar}>Payment Methods</Link>
