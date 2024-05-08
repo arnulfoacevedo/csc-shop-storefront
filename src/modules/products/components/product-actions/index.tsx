@@ -35,6 +35,7 @@ export default function ProductActions({
     const [options, setOptions] = useState<Record<string, string>>({})
     const [isAdding, setIsAdding] = useState(false)
     const [quantity, setQuantity] = useState(1)
+    // const [recentlyItems, setValue] = useLocalStorage("recentlyItems", ["dd"])
 
     const { toast } = useToast()
 
@@ -51,6 +52,16 @@ export default function ProductActions({
         }
 
         setOptions(optionObj)
+
+        const currentItems = localStorage.getItem("recentlyitems") || "";
+        const recentlyItems = window?.localStorage?.getItem("recentlyitems") ? JSON.parse(currentItems) : [];
+        if (recentlyItems.length > 5) {
+            recentlyItems.shift();
+        }
+        if (!recentlyItems.find((ele: PricedProduct) => ele.id === product.id)) {
+            recentlyItems.push(product);
+        }
+        window?.localStorage?.setItem("recentlyitems", JSON.stringify(recentlyItems));
     }, [product])
 
     // memoized record of the product's variants
@@ -149,7 +160,6 @@ export default function ProductActions({
         setIsAdding(false)
     }
 
-    // console.log(product);
 
     return (
         <>

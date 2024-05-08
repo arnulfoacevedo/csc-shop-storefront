@@ -65,9 +65,8 @@ export default async function ProductPreview({
                 <div className="mt-5 lg:mt-8 space-y-2">
                     {
                         pricedProduct.variants.length > 1 ?
-                            <Link className="btn btn-yellow"
-                                href={`/product/${productPreview.handle}`}
-                                data-event-type="product-click" data-product-id="18100" tabIndex={0}>Choose Options
+                            <Link href={`/product/${productPreview.handle}`}>
+                                <Button className="btn btn-yellow py-1.6 w-full" variant="secondary">Choose Options</Button>
                             </Link> :
                             <AddCartForm addToCart={handleAddToCart} variantTitle={productPreview.title} />
                     }

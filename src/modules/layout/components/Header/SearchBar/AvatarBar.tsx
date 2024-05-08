@@ -39,7 +39,7 @@ export const AvatarBar = ({ customer }: Props) => {
             document.removeEventListener("mousedown", handler);
         };
     }, []);
-    
+
     return (
         <div className="relative hidden md:block" ref={avatarRef}>
             {
@@ -53,6 +53,10 @@ export const AvatarBar = ({ customer }: Props) => {
                                 clipRule="evenodd" />
                         </svg>
                         <span className="hidden xl:inline-block pointer-events-none">Account</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 w-4 h-4 pointer-events-none">
+                            <path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
+                        </svg>
+
                     </button> : <Link
                         className="dropdown-button w-full border-none flex items-center font-bold hover:text-brand-yellow-100 transition-colors" href={"/account"}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"

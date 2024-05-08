@@ -2,18 +2,13 @@ import { Region } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import React, { Suspense } from "react"
 
-import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
-import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
-import ProductTabs from "@modules/products/components/product-tabs"
-import ProductInfo from "@modules/products/templates/product-info"
-import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import Link from "next/link"
 import Image from "next/image"
-import { listCategories } from "@lib/data"
-import { ProductCategory } from "@medusajs/product"
+
+import RouteBar from "@modules/account/RouteBar"
 
 type ProductTemplateProps = {
     product: PricedProduct
@@ -29,24 +24,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
     if (!product || !product.id) {
         return notFound()
     }
-    console.log(product)
-    // const categoryStack = await getCategoryStack(product.categoryHandle)
 
     return (
         <>
-            <div className="container mx-auto hidden md:flex items-center text-xss space-x-2 p-5">
-                <Link href="./index.html" className="underline">Home</Link>
-                <span>/</span>
-                <Link href="https://store.theshootingcentre.com/ammunition/" className="underline">
-                    Ammunition
-                </Link>
-                <span>/</span>
-                <Link href="https://store.theshootingcentre.com/ammunition/centrefire/" className="underline">
-                    Centrefire
-                </Link>
-                <span>/</span>
-                <p>{product.title}</p>
-            </div>
+            <RouteBar />
             <div className="bg-white border-y border-brand-gray-200">
                 <div className="container mx-auto py-10 px-5">
                     <div className="grid md:grid-cols-2 xl:grid-cols-11 gap-x-6 gap-y-4 xl:gap-8 mb-20">
@@ -71,8 +52,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
                                 <p className="text-brand-red-100">Was: <s>$42.00</s></p>
                                 <p className="font-bold text-xl">$33.60</p>
                             </div> */}
-                            <p className="hidden md:block"> SKU: 798681516889</p>
-                            <p className="hidden md:block"> UPC: 798681516889</p>
+                            {/* <p className="hidden md:block"> SKU: 798681516889</p>
+                            <p className="hidden md:block"> UPC: 798681516889</p> */}
                         </div>
                         <div className="xl:col-span-3">
                             <Suspense
