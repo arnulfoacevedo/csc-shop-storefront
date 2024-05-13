@@ -1,39 +1,88 @@
-import { Image as MedusaImage } from "@medusajs/medusa"
-import { Container } from "@medusajs/ui"
-import Image from "next/image"
+'use client'
 
+import { Image as MedusaImage } from "@medusajs/medusa"
+import Image from "next/image"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation } from 'swiper/modules';
+
+import "./index.css"
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import { useState } from "react";
 type ImageGalleryProps = {
-  images: MedusaImage[]
+    thumbnail: string | null | undefined
+    images: MedusaImage[]
 }
 
-const ImageGallery = ({ images }: ImageGalleryProps) => {
-  return (
-    <div className="flex items-start relative">
-      <div className="flex flex-col flex-1 small:mx-16 gap-y-4">
-        {images.map((image, index) => {
-          return (
-            <Container
-              key={image.id}
-              className="relative aspect-[29/34] w-full overflow-hidden bg-ui-bg-subtle"
-              id={image.id}
-            >
-              <Image
-                src={image.url}
-                priority={index <= 2 ? true : false}
-                className="absolute inset-0 rounded-rounded"
-                alt={`Product image ${index + 1}`}
-                fill
-                sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-                style={{
-                  objectFit: "cover",
-                }}
-              />
-            </Container>
-          )
-        })}
-      </div>
-    </div>
-  )
+const ImageGallery = ({ thumbnail, images }: ImageGalleryProps) => {
+    const [swiper, setSwiper] = useState(0);
+
+    const setActiveImage = (index: number) => {
+        setSwiper(index);
+    }
+
+    return (
+        <>
+            <section className="slider md:row-span-1 xl:row-span-1 xl:col-span-1">
+                <div className="slider__prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                        <path d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z" />
+                    </svg>
+                </div>
+                <div className="slider__thumbs relative">
+                    <Swiper
+                        direction="vertical"
+                        slidesPerView={4}
+                        spaceBetween={10}
+                        navigation={{
+                            nextEl: ".slider__next",
+                            prevEl: ".slider__prev",
+                        }}
+                        modules={[FreeMode, Navigation]}
+                        breakpoints={{
+                            0: {
+                                direction: 'horizontal',
+                            },
+                            768: {
+                                direction: 'vertical',
+                            },
+                        }}
+                    >
+                        {
+
+                            images.length > 0 &&
+                            <SwiperSlide className={0 == swiper ? "active__image" : ''} key={0} onClick={() => setActiveImage(0)}>
+                                <div className="slider__image">
+                                    {thumbnail && <Image src={thumbnail} width={50} height={50} alt="" />}
+                                </div>
+                            </SwiperSlide>
+                        }
+                        {
+                            images.map((image, index) => {
+                                let num = index + 1;
+                                return (
+                                    <SwiperSlide className={num == swiper ? "active__image" : ''} key={num} onClick={() => setActiveImage(num)}>
+                                        <div className="slider__image">
+                                            <Image src={image.url} width={50} height={50} alt="" />
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })
+                        }
+                    </Swiper>
+                </div>
+                <div className="slider__next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                        <path d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
+                    </svg>
+                </div>
+            </section>
+            <div id="image-container" className="md:row-span-1 xl:row-span-1 xl:col-span-3 max-w-100 overflow-hidden cursor-zoom-in">
+                <Image className="origin-center" width={400} height={400} src={swiper == 0 ? thumbnail || "" : images[swiper - 1].url} alt="No Image" />
+            </div>
+        </>
+    )
 }
 
 export default ImageGallery

@@ -24,8 +24,8 @@ const SearchResultsTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <>
-      <div className="flex justify-between border-b w-full py-6 px-8 small:px-14 items-center">
+    <div className="container mx-auto mt-5 px-5">
+      <div className="flex justify-between border-b w-full py-6 px-8 items-center">
         <div className="flex flex-col items-start">
           <Text className="text-ui-fg-muted">Search Results for:</Text>
           <Heading>
@@ -33,7 +33,7 @@ const SearchResultsTemplate = ({
           </Heading>
         </div>
         <LocalizedClientLink
-          href="/store"
+          href="/store/all"
           className="txt-medium text-ui-fg-subtle hover:text-ui-fg-base"
         >
           Clear
@@ -41,22 +41,23 @@ const SearchResultsTemplate = ({
       </div>
       <div className="flex flex-col small:flex-row small:items-start p-6">
         {ids.length > 0 ? (
-          <>
+          <div className="grid md:grid-cols-5 gap-5">
             <RefinementList sortBy={sortBy || "created_at"} search />
-            <div className="content-container">
-              {/* <PaginatedProducts
+            <div className="content-container md:col-span-4">
+              <PaginatedProducts
                 productsIds={ids}
                 sortBy={sortBy}
                 page={pageNumber}
                 countryCode={countryCode}
-              /> */}
+                limit={12}
+              />
             </div>
-          </>
+          </div>
         ) : (
           <Text className="ml-8 small:ml-14 mt-3">No results.</Text>
         )}
       </div>
-    </>
+    </div>
   )
 }
 

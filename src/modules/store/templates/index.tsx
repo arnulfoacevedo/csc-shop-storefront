@@ -4,11 +4,11 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
+// import StoreProvider from "../store-context"
+
 import PaginatedProducts from "./paginated-products"
 import { FilterBar } from "../components/filter-bar"
 import { listCategories } from "@lib/data"
-import Link from "next/link"
-import { ProductCategory } from "@medusajs/medusa"
 import React from "react"
 import { NavigationItem } from "types/global"
 import RouteBar from "@modules/account/RouteBar"
@@ -34,6 +34,7 @@ const StoreTemplate = async ({
     const category = categories.find(item => item.handle == categoryHandle);
 
     return (
+        // <StoreProvider storeData={{viewMode: 'card'}}>
         <div className="container mx-auto mt-5 px-5">
             <div className="grid md:grid-cols-5 gap-5">
                 <RefinementList sortBy={sortBy || "created_at"} />
@@ -55,6 +56,7 @@ const StoreTemplate = async ({
                 </div>
             </div>
         </div>
+        // </StoreProvider>
     )
 }
 

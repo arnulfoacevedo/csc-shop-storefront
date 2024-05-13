@@ -1,6 +1,6 @@
 import { Region } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import React, { Suspense } from "react"
+import React, { Suspense, useState } from "react"
 
 import ProductActions from "@modules/products/components/product-actions"
 import { notFound } from "next/navigation"
@@ -9,6 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 import RouteBar from "@modules/account/RouteBar"
+import ImageGallery from "../components/image-gallery"
 
 type ProductTemplateProps = {
     product: PricedProduct
@@ -31,9 +32,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
             <div className="bg-white border-y border-brand-gray-200">
                 <div className="container mx-auto py-10 px-5">
                     <div className="grid md:grid-cols-2 xl:grid-cols-11 gap-x-6 gap-y-4 xl:gap-8 mb-20">
-                        <div id="image-container" className="md:row-span-2 xl:row-span-1 xl:col-span-4 max-w-100 overflow-hidden cursor-zoom-in">
-                            { product.thumbnail && <Image className="origin-center" width={400} height={400} src={product.thumbnail} alt="No Image" /> }
-                        </div>
+                        {product.images && <ImageGallery thumbnail={product.thumbnail} images={product.images} />}
                         <div className="order-first md:order-none text-sm space-y-4 xl:col-span-4">
                             <div className="md:border-b border-brand-gray-200 space-y-2 pb-5">
                                 <h1 className="font-bold text-xl">{product.title}</h1>
@@ -44,7 +43,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
                                         Write a Review
                                     </Link>
                                 </p>
-                                <p>{}</p>
+                                <p>{ }</p>
                             </div>
                             {/* <div className="hidden xl:block space-y-2">
                                 <button type="button"

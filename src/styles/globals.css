@@ -318,12 +318,10 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 
-[type='search'] {
+/* [type='search'] {
   -webkit-appearance: textfield;
-  /* 1 */
   outline-offset: -2px;
-  /* 2 */
-}
+} */
 
 
 /*
@@ -499,7 +497,7 @@ video {
 }
 
 
-[type='text'],
+/* [type='text'],
 input:where(:not([type])),
 [type='email'],
 [type='url'],
@@ -529,7 +527,7 @@ select {
   font-size: 1rem;
   line-height: 1.5rem;
   --tw-shadow: 0 0 #0000;
-}
+} */
 
 
 [type='text']:focus,
@@ -541,7 +539,6 @@ input:where(:not([type])):focus,
 [type='date']:focus,
 [type='datetime-local']:focus,
 [type='month']:focus,
-[type='search']:focus,
 [type='tel']:focus,
 [type='time']:focus,
 [type='week']:focus,
@@ -944,7 +941,7 @@ select {
 }
 
 
-[type='text'],
+/* [type='text'],
 [type='email'],
 [type='url'],
 [type='password'],
@@ -973,7 +970,7 @@ select {
   font-size: 1rem;
   line-height: 1.5rem;
   --tw-shadow: 0 0 #0000;
-}
+} */
 
 
 [type='text']:focus,
@@ -984,7 +981,6 @@ select {
 [type='date']:focus,
 [type='datetime-local']:focus,
 [type='month']:focus,
-[type='search']:focus,
 [type='tel']:focus,
 [type='time']:focus,
 [type='week']:focus,

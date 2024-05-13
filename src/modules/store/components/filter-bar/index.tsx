@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 
@@ -46,7 +45,7 @@ export function FilterBar() {
                 <span className={limit == 36 ? "" : "underline"} onClick={() => handleLimitChange(36)}>36</span>
                 <span className={limit == 48 ? "" : "underline"} onClick={() => handleLimitChange(48)}>48</span>
             </div>
-            <button data-tab-target="#cards" type="button" className="tab active hidden lg:block">
+            {/* <button data-tab-target="#cards" type="button" className="tab active hidden lg:block" onClick={() => setViewMode('card')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20">
                     <path
                         d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"
@@ -54,12 +53,12 @@ export function FilterBar() {
                 </svg>
             </button>
 
-            <button data-tab-target="#card" type="button" className="tab  hidden lg:block">
+            <button data-tab-target="#card" type="button" className="tab  hidden lg:block" onClick={() => setViewMode('list')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20">
                     <path d="M4 6h2v2H4zm0 5h2v2H4zm0 5h2v2H4zm16-8V6H8.023v2H18.8zM8 11h12v2H8zm0 5h12v2H8z"
                         fill="currentColor"></path>
                 </svg>
-            </button>
+            </button> */}
         </div>
     )
 }

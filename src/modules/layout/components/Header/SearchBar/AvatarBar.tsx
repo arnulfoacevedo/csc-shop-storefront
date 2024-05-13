@@ -74,7 +74,7 @@ export const AvatarBar = ({ customer }: Props) => {
                     <Link className="underline link-tansition" href="/account/messages" onClick={toggleAvatar}>Messages</Link>
                     <Link className="underline link-tansition" href="/account/addresses" onClick={toggleAvatar}>Addresses</Link>
                     <Link className="underline link-tansition" href="/account/payment" onClick={toggleAvatar}>Payment Methods</Link>
-                    <Link className="underline link-tansition" href="/account/list" onClick={toggleAvatar}>Your Lists</Link>
+                    {/* <Link className="underline link-tansition" href="/account/list" onClick={toggleAvatar}>Your Lists</Link> */}
                     <Link className="underline link-tansition" href="/account/recently" onClick={toggleAvatar}>Recently Viewed</Link>
                     <Link className="underline link-tansition" href="/account/profile" onClick={toggleAvatar}>Account Settings</Link>
                     <Link className="underline link-tansition" href="#" onClick={handleLogout}>Sign out</Link>

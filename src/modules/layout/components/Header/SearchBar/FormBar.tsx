@@ -2,30 +2,20 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react";
 import React from "react";
 import logoImg from "@/public/image/logo.png"
+import { useRouter } from 'next/navigation'
 
 export const FormBar = () => {
-    const [togglesearch, setTogglesearch] = useState(true);
-    const toplinkRef = React.useRef<HTMLAnchorElement>(null);
-    const burgerRef = React.useRef<HTMLButtonElement>(null);
+    const router = useRouter()
 
-    const toggleSearchBar = () => {
-        setTogglesearch(togglesearch ? false : true);
+    const toggleSearchBar = () => {        
+        router.push('/search')
     }
-
-    const setToggleMobile = (e: any) => {
-        toplinkRef.current?.classList.toggle('hidden')
-        burgerRef.current?.classList.toggle('burger_active')
-        // toggleMobileMenu();
-        document.body.classList.toggle('overflow-hidden')
-    }
-
     return (
         <>
             <div className="col-span-4 xl:col-span-1 flex items-center gap-5">
-                <button className="md:hidden burger relative w-7 h-5" type="button" onClick={setToggleMobile} ref={burgerRef}>
+                <button className="md:hidden burger relative w-7 h-5" type="button">
                     <i
                         className="absolute top-1/2 left-0 w-full h-0.5 bg-brand-yellow-100 transition-all ease-linear duration-200"></i>
                 </button>

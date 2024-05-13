@@ -22,7 +22,7 @@ type HitProps = {
 const Hit = ({ hit }: HitProps) => {
   return (
     <LocalizedClientLink
-      href={`/products/${hit.handle}`}
+      href={`/product/${hit.handle}`}
       data-testid="search-result"
     >
       <Container
