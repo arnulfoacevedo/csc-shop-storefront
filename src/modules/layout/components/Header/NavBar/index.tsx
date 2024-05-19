@@ -17,9 +17,9 @@ const NavBar = async ({menuData}: Props) => {
                     })}
                 </div>
                 <div className="flex xl:items-center justify-end gap-3 xl:gap-5 py-3 xl:py-0 px-5">
-                    <p className="whitespace-nowrap cursor-pointer hover:text-brand-yellow-100 transition-colors ease-linear">
+                    <a className="whitespace-nowrap cursor-pointer hover:text-brand-yellow-100 transition-colors ease-linear" href="tel:+1 (403) 451-1777">
                         Need Help? +1 (403) 451-1777
-                    </p>
+                    </a>
                     {/* <Link className="whitespace-nowrap hover:text-brand-yellow-100 transition-colors ease-linear" href="/account/list">Your Lists</Link> */}
                 </div>
             </div>

@@ -39,7 +39,7 @@ const StoreTemplate = async ({
             <div className="grid md:grid-cols-5 gap-5">
                 <RefinementList sortBy={sortBy || "created_at"} />
                 <div className="md:col-span-4">
-                    <RouteBar />
+                    {/* <RouteBar /> */}
                     <div className="md:flex items-center space-y-2 md:space-x-2 md:mt-7">
                         <h1 className="text-[28px]/8">{category?.name}</h1>
                     </div>

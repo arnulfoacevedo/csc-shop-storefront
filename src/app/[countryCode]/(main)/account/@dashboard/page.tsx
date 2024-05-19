@@ -4,7 +4,6 @@ import OrderOverview from "@modules/account/components/order-overview"
 import { listCustomerOrders } from "@lib/data"
 import { notFound } from "next/navigation"
 import LinkBar from "@modules/account/LinkBar";
-import RouteBar from "@modules/account/RouteBar";
 import Link from "next/link";
 
 export const metadata: Metadata = {

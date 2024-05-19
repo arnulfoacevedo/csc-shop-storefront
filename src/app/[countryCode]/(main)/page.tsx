@@ -10,9 +10,6 @@ import PopularProducts from "@modules/home/components/popular-products";
 import NewProducts from "@modules/home/components/new-products";
 import FeaturedProducts from "@modules/home/components/featured-products";
 import Brands from "@modules/home/components/brands";
-import { Product } from "@medusajs/medusa";
-import { ProductCollectionWithPreviews } from "types/global";
-import { cache } from "react";
 import { getProductsList } from "@lib/data";
 
 

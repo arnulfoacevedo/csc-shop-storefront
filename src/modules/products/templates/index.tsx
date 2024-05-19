@@ -6,10 +6,10 @@ import ProductActions from "@modules/products/components/product-actions"
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import Link from "next/link"
-import Image from "next/image"
 
 import RouteBar from "@modules/account/RouteBar"
 import ImageGallery from "../components/image-gallery"
+import ProductInfo from "../components/product-tabs"
 
 type ProductTemplateProps = {
     product: PricedProduct
@@ -28,7 +28,16 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
 
     return (
         <>
-            <RouteBar />
+            <div className="container mx-auto hidden md:flex items-center text-xss space-x-2 px-5 py-3">
+                <div className="hidden md:flex items-center text-xss space-x-2">
+                    <Link href="/" className="underline">Home</Link>
+                    <span>/</span>
+                    <Link href={`/store/all`} className="underline">Store</Link>
+                    <span>/</span>
+                    <span>{product.title}</span>
+                </div>
+            </div>
+
             <div className="bg-white border-y border-brand-gray-200">
                 <div className="container mx-auto py-10 px-5">
                     <div className="grid md:grid-cols-2 xl:grid-cols-11 gap-x-6 gap-y-4 xl:gap-8 mb-20">
@@ -78,15 +87,8 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
                     </div>
                     <div className="px-5 lg:px-16">
                         <div className="container mx-auto text-sm bg-white border border-brand-gray-200 mt-5 p-5">
-                            <h2 className="text-xl font-bold">Extra Information</h2>
-                            <div className="grid grid-cols-4 border border-brand-gray-200 text-sm mt-5">
-                                <p className="font-bold bg-brand-gray-500 py-1 px-3">Brand:</p>
-                                <p className="col-span-3 py-1 px-3">Stanley</p>
-                            </div>
-                            <div className="grid grid-cols-4 border border-t-0 border-brand-gray-200 text-sm">
-                                <p className="font-bold bg-brand-gray-500 py-1 px-3">Product:</p>
-                                <p className="col-span-3 py-1 px-3">Beer Pitcher</p>
-                            </div>
+                            <h2 className="text-xl font-bold">Product Information</h2>
+                            <ProductInfo product={product} />
                         </div>
                     </div>
 

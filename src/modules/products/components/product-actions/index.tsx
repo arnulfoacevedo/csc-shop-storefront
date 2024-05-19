@@ -193,7 +193,7 @@ export default function ProductActions({
                 <div className="space-y-2 flex items-center justify-between">
                     <label className="font-semibold">Quantity:</label>
                     <input
-                        className="block w-12 h-10 border-brand-gray-200 focus:ring-0 focus:border-brand-gray-200 text-center rounded "
+                        className="block w-12 h-10 border border-gray-200 focus:ring-0 text-center rounded"
                         type="text" id="tel" value={quantity} onChange={handleChangeQty} />
                 </div>
 
@@ -211,13 +211,13 @@ export default function ProductActions({
                             ? "Out of stock"
                             : "Add to cart"}
                 </Button>
-                <Button
+                {/* <Button
                     className="btn btn-white-outline w-full h-10 flex"
                     data-testid="add-list-button"
                     variant="secondary"
                 >
                     Add to Your List
-                </Button>
+                </Button> */}
             </div>
         </>
     )

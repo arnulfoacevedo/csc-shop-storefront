@@ -11,6 +11,11 @@ import {
 import { Region } from "@medusajs/medusa"
 import ProductTemplate from "@modules/products/templates"
 
+export const metadata: Metadata = {
+  title: "Product detail",
+  description: "Details",
+}
+
 type Props = {
   params: { countryCode: string; productHandle: string }
 }

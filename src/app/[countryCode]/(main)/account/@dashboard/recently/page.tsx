@@ -1,6 +1,12 @@
 import { getRegion } from "@lib/data";
 import RecentlyTemplate from "@modules/account/templates/recently-template";
 import { notFound } from "next/navigation"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Recently viewed",
+  description: "Recently viewed",
+}
 
 type Props = {
   params: { countryCode: string; productHandle: string }

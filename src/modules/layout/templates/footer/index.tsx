@@ -46,7 +46,7 @@ const Footer = () => {
                             <p className="text-sm">Get the latest updates on new products and upcoming sales</p>
                             <form action="#" className="w-full flex flex-col xl:flex-row items-start text-brand-gray-100 rounded gap-y-3">
                                 <input type="email" placeholder="Your email address"
-                                    className="relative w-full border-none focus:ring-0 text-sm rounded xl:rounded-r-none py-2.5" />
+                                    className="relative w-full border-none focus:ring-0 text-sm rounded xl:rounded-r-none py-2.5 px-3" />
                                 <Link href="#" className="h-10 w-full xl:w-auto btn btn-yellow rounded xl:rounded-r xl:rounded-l-none px-8 py-2">
                                     Subscime
                                 </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
                 <div className="container mx-auto text-white py-7 px-5">
                     <div className="flex flex-col md:flex-row justify-between text-center md:text-start items-center gap-6">
                         <div className="footer-link text-[13px]/5">
-                            <p>© 2023 CSC - Canada&quot;s Gun Shop </p>
+                            <p>© 2024 CSC - Canada&quot;s Gun Shop </p>
                             <Link href="#" className="underline decoration-white">Manage Website DatLink Collection Preferences</Link>
                         </div>
 

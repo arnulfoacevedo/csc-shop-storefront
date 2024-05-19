@@ -15,7 +15,7 @@ export default function LinkBar() {
                 <Link href="/account" className="text-brand-gray-600 underline">Orders</Link>
                 <Link href="/account/message" className="link-tansition underline">Messages (0)</Link>
                 <Link href="/account/addresses" className="link-tansition underline">Addresses</Link>
-                <Link href="/account/payment" className="link-tansition underline">Payment Methods</Link>
+                {/* <Link href="/account/payment" className="link-tansition underline">Payment Methods</Link> */}
                 {/* <Link href="/account/list" className="link-tansition underline">Your Lists (0)</Link> */}
                 <Link href="/account/recently" className="link-tansition underline">Recently Viewed</Link>
                 <Link href="/account/profile" className="link-tansition underline">Account Settings</Link>

@@ -37,7 +37,7 @@ export default function About() {
                 still have your records available in-store should you need them.
               </li>
               <li>
-                <Link className="font-bold link-tansition underline" href="https://store.theshootingcentre.com/login.php">
+                <Link className="font-bold link-tansition underline" href="/account">
                   Click here to create your new account.</Link>
               </li>
             </ul>

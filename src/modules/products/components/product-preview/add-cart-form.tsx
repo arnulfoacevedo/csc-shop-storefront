@@ -38,7 +38,7 @@ export default function AddCartForm ({addToCart, variantTitle}: Props) {
         <div className="flex items-stretch">
             <Toaster />
             <input type="text" value={quantity} onChange={handleChangeQty}
-                className="w-12 btn btn-white-outline rounded-r-none" />
+                className="w-12 btn btn-white-outline rounded-r-none focus:border-gray-400 outline-none" />
             <Button
                 variant="secondary"
                 isLoading={isAdding}
