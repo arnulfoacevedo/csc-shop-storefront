@@ -18,7 +18,9 @@ const Register = ({ setCurrentView }: Props) => {
     <>
       <div className="container mx-auto mt-5 px-5">
         <div className="hidden md:flex items-center text-xss space-x-2">
-          <Link href="/" className="underline">Home</Link>
+          <Link href="/" className="underline">
+            Home
+          </Link>
           <span>/</span>
           <p>Create Account</p>
         </div>
@@ -32,7 +34,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label>Email Address:</label>
               <small>Required</small>
             </div>
-            <input type="email" name="email" />
+            <input type="email" name="email" required />
           </div>
 
           <div className="space-y-2">
@@ -40,7 +42,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label>password</label>
               <small>Required</small>
             </div>
-            <input type="password" name="password" />
+            <input type="password" name="password" required />
           </div>
 
           <div className="space-y-2">
@@ -48,7 +50,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label>Confirm Password</label>
               <small>Required</small>
             </div>
-            <input type="password" name="Confirm" />
+            <input type="password" name="Confirm" required />
           </div>
 
           <div className="space-y-2">
@@ -63,7 +65,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="First">First Name</label>
               <small>Required</small>
             </div>
-            <input type="text" name="first_name" />
+            <input type="text" name="first_name" required />
           </div>
 
           <div className="space-y-2">
@@ -71,7 +73,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="Last">Last Name</label>
               <small>Required</small>
             </div>
-            <input type="text" name="last_name" />
+            <input type="text" name="last_name" required />
           </div>
 
           <div className="space-y-2">
@@ -79,7 +81,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="add-line-1"> Address Line 1</label>
               <small>Required</small>
             </div>
-            <input type="text" name="add-line-1" />
+            <input type="text" name="add-line-1" required />
           </div>
 
           <div className="space-y-2">
@@ -95,7 +97,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="city-town">City / Town</label>
               <small>Required</small>
             </div>
-            <input type="text" name="city-town" />
+            <input type="text" name="city-town" required />
           </div>
 
           <div className="space-y-2">
@@ -103,15 +105,25 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="pro">Province</label>
               <small>Required</small>
             </div>
-            <select className="form-select" aria-required="true" name="pro" data-label="Province"
-              data-field-type="State">
+            <select
+              className="form-select"
+              aria-required="true"
+              name="pro"
+              data-label="Province"
+              data-field-type="State"
+              required
+            >
               <option value="">Choose a Province</option>
               <option value="Alberta">Alberta</option>
               <option value="British Columbia">British Columbia</option>
               <option value="Manitoba">Manitoba</option>
               <option value="New Brunswick">New Brunswick</option>
-              <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-              <option value="Northwest Territories">Northwest Territories</option>
+              <option value="Newfoundland and Labrador">
+                Newfoundland and Labrador
+              </option>
+              <option value="Northwest Territories">
+                Northwest Territories
+              </option>
               <option value="Nova Scotia">Nova Scotia</option>
               <option value="Nunavut">Nunavut</option>
               <option value="Ontario">Ontario</option>
@@ -127,7 +139,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="Postal">Postal Code</label>
               <small>Required</small>
             </div>
-            <input type="text" name="Postal" />
+            <input type="text" name="Postal" required />
           </div>
 
           <div className="space-y-2">
@@ -135,14 +147,25 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="Country">Country</label>
               <small>Required</small>
             </div>
-            <select className="form-select" aria-required="true" name="Country" data-label="Province" data-field-type="State">
+            <select
+              className="form-select"
+              aria-required="true"
+              name="Country"
+              data-label="Province"
+              data-field-type="State"
+              required
+            >
               <option value="">Choose a Province</option>
               <option value="Alberta">Alberta</option>
               <option value="British Columbia">British Columbia</option>
               <option value="Manitoba">Manitoba</option>
               <option value="New Brunswick">New Brunswick</option>
-              <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-              <option value="Northwest Territories">Northwest Territories</option>
+              <option value="Newfoundland and Labrador">
+                Newfoundland and Labrador
+              </option>
+              <option value="Northwest Territories">
+                Northwest Territories
+              </option>
               <option value="Nova Scotia">Nova Scotia</option>
               <option value="Nunavut">Nunavut</option>
               <option value="Ontario">Ontario</option>
@@ -158,7 +181,7 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="number">Phone Number</label>
               <small>Required</small>
             </div>
-            <input type="text" name="number" />
+            <input type="text" name="number" required />
           </div>
 
           <div className="space-y-2">
@@ -174,8 +197,12 @@ const Register = ({ setCurrentView }: Props) => {
               <div className="flex items-center justify-between">
                 <label htmlFor="birth">Date of Birth</label>
               </div>
-              <select className="form-select" name="FormFieldMonth[2][28]" data-label="month"
-                aria-required="false">
+              <select
+                className="form-select"
+                name="FormFieldMonth[2][28]"
+                data-label="month"
+                aria-required="false"
+              >
                 <option value="1">Jan</option>
                 <option value="2">Feb</option>
                 <option value="3">Mar</option>
@@ -195,10 +222,15 @@ const Register = ({ setCurrentView }: Props) => {
                 <label htmlFor="">Date of Birth</label>
                 <small>Required</small>
               </div>
-              <select className="form-select" name="FormFieldDay[2][28]" data-label="day" aria-required="false">
-                {[...Array(31)].map((x, i) =>
+              <select
+                className="form-select"
+                name="FormFieldDay[2][28]"
+                data-label="day"
+                aria-required="false"
+              >
+                {[...Array(31)].map((x, i) => (
                   <option value={i} key={i}>{`${i + 1}st`}</option>
-                )}
+                ))}
               </select>
             </div>
             <div className="space-y-2">
@@ -206,27 +238,32 @@ const Register = ({ setCurrentView }: Props) => {
                 <label htmlFor="">Date of Birth</label>
                 <small>Required</small>
               </div>
-              <select className="form-select" name="FormFieldYear[2][28]" data-label="year"
-                aria-required="false">
-                {[...Array(130)].map((x, i) =>
-                  <option value={i + 1923} key={i}>{i + 1923}</option>
-                )}
+              <select
+                className="form-select"
+                name="FormFieldYear[2][28]"
+                data-label="year"
+                aria-required="false"
+              >
+                {[...Array(130)].map((x, i) => (
+                  <option value={i + 1923} key={i}>
+                    {i + 1923}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
 
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label>Place of Birth</label>
               <small>Required</small>
             </div>
             <input type="text" name="place" />
-          </div>
+          </div> */}
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label>Gun Club</label>
-              <small>Required</small>
             </div>
             <input type="text" name="gun" />
           </div>
@@ -234,19 +271,32 @@ const Register = ({ setCurrentView }: Props) => {
           <div className="space-y-2">
             <p className="text-sm font-semibold">Gun Club</p>
             <div className="flex items-start sm:items-center space-x-2.5">
-              <input className="!w-3.5 !h-3.5 focus:ring-0 rounded-sm" type="checkbox" name="check" />
-              <label className="!font-normal">I would like to receive updates and offers.</label>
+              <input
+                className="!w-3.5 !h-3.5 focus:ring-0 rounded-sm"
+                type="checkbox"
+                name="check"
+              />
+              <label className="!font-normal">
+                I would like to receive updates and offers.
+              </label>
             </div>
           </div>
         </div>
         <div className="mt-3">
-          <Button 
-                className="btn btn-yellow inline-block mt-5 px-6 py-3"
-                variant="secondary"
-                onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
-              >Create Account
+          <Button
+            className="btn btn-yellow inline-block mt-5 px-6 py-3"
+            variant="secondary"
+            onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+          >
+            Create Account
           </Button>
-          <Link href="#" className="underline ml-5" onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}>Do you have already an account?</Link>
+          <Link
+            href="#"
+            className="underline ml-5"
+            onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
+          >
+            Do you have already an account?
+          </Link>
         </div>
       </form>
     </>

@@ -2,9 +2,11 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import {
+  getCustomer,
   getProductByHandle,
   getProductsList,
   getRegion,
+  getReviews,
   listRegions,
   retrievePricedProductById,
 } from "@lib/data"
@@ -44,17 +46,25 @@ export default async function ProductPage({ params }: Props) {
     notFound()
   }
 
-  const pricedProduct = await getPricedProductByHandle(params.productHandle, region)
+  const pricedProduct = await getPricedProductByHandle(
+    params.productHandle,
+    region
+  )
 
   if (!pricedProduct) {
     notFound()
   }
 
+  const reviews = await getReviews(pricedProduct.id)
+  const customer = await getCustomer().catch(() => null)
+
   return (
     <ProductTemplate
       product={pricedProduct}
       region={region}
+      customer={customer}
       countryCode={params.countryCode}
+      reviews={reviews}
     />
   )
 }

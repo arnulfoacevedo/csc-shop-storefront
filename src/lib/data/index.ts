@@ -17,11 +17,19 @@ import { cache } from "react"
 import sortProducts from "@lib/util/sort-products"
 import transformProductPreview from "@lib/util/transform-product-preview"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import { NavigationItem, ProductCategoryWithChildren, ProductPreviewType } from "types/global"
+import {
+  NavigationItem,
+  ProductCategoryWithChildren,
+  ProductPreviewType,
+  ReviewType,
+} from "types/global"
 
 import { medusaClient } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { cookies } from "next/headers"
+// import axios from "axios"
+import { revalidateTag } from "next/cache"
+import axios from "axios"
 
 const emptyResponse = {
   response: { products: [], count: 0 },
@@ -737,20 +745,19 @@ export const getProductsByCategoryHandle = cache(async function ({
   response: { products: ProductPreviewType[]; count: number }
   nextPage: number | null
 }> {
-  
   const { id } = await getCategoryByHandle([handle]).then(
     (res) => res.product_categories[0]
   )
-  
+
   const { response, nextPage } = await getProductsList({
     pageParam,
     queryParams: { category_id: [id] },
     countryCode,
   })
-  .then((res) => res)
-  .catch((err) => {
-    throw err
-  })
+    .then((res) => res)
+    .catch((err) => {
+      throw err
+    })
 
   return {
     response,
@@ -758,26 +765,73 @@ export const getProductsByCategoryHandle = cache(async function ({
   }
 })
 
+export const getCategoryStack = cache(
+  async (categoryHandle: string): Promise<NavigationItem[]> => {
+    const categories = await listCategories()
+    const selectedCategory = categories.find(
+      (item) => item.handle == categoryHandle
+    )
 
-export const getCategoryStack = cache(async (categoryHandle: string): Promise<NavigationItem[]> => {
-  
-  const categories = await listCategories();
-  const selectedCategory = categories.find(item => item.handle == categoryHandle);
+    const path: NavigationItem[] = []
 
-  const path: NavigationItem[] = [];
-
-  function traverseParentCategories(category: ProductCategory) {
-    if (category.parent_category_id) {
-      const parentCategory = categories.find(cat => cat.id === category.parent_category_id);
-      parentCategory && traverseParentCategories(parentCategory);
+    function traverseParentCategories(category: ProductCategory) {
+      if (category.parent_category_id) {
+        const parentCategory = categories.find(
+          (cat) => cat.id === category.parent_category_id
+        )
+        parentCategory && traverseParentCategories(parentCategory)
+      }
+      category.name &&
+        path.push({
+          id: category.id,
+          name: category.name,
+          handle: category.handle,
+        })
     }
-    category.name && path.push({
-      id: category.id,
-      name: category.name,
-      handle: category.handle
-    });
-  }
 
-  selectedCategory && traverseParentCategories(selectedCategory);
-  return path;
-})
+    selectedCategory && traverseParentCategories(selectedCategory)
+    return path
+  }
+)
+
+// ----------------------------  Reviews ----------------------------- //
+
+export const getReviews = cache(
+  async (product_id: string | undefined): Promise<ReviewType[]> => {
+    if (!product_id) return []
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products/${product_id}/reviews`,
+      { next: { tags: ["review"] } }
+    )
+    const json_data = await response.json()
+    return json_data.product_reviews
+  }
+)
+
+export async function saveReview({
+  product_id,
+  customer_id,
+  display_name,
+  rating,
+  content,
+}: {
+  product_id: string
+  customer_id: string
+  display_name: string
+  rating: number
+  content: string
+}) {
+  const response = await axios.post(
+    `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/products/${product_id}/reviews`,
+    {
+      customer_id: customer_id,
+      display_name: display_name,
+      rating: rating,
+      content: content,
+    }
+  )
+  if (response.statusText == "OK") {
+    revalidateTag("review")
+  }
+  return response.statusText
+}

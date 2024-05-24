@@ -68,3 +68,12 @@ export type NavigationItem = {
    name: string;
    handle: string;
 }
+
+export type ReviewType = {
+  id: string
+  title: string
+  rating: number
+  display_name: string
+  content: string
+  created_at: string
+}
