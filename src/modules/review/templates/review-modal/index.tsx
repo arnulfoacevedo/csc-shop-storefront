@@ -27,8 +27,6 @@ export default function ReviewModal({
   const { toast } = useToast()
 
   const handleOutsideClick = (event: MouseEvent) => {
-    console.log("sdds")
-
     if (event.target === searchRef.current) {
       router.push(`/product/${product_handle}`)
     }

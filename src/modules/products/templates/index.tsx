@@ -59,7 +59,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
                 images={product.images}
               />
             )}
-            <div className="order-first md:order-none text-sm space-y-4 xl:col-span-4">
+            <div className="order-first md:order-none text-sm space-y-4 xl:col-span-3">
               <div className="md:border-b border-brand-gray-200 space-y-2 pb-5">
                 <h1 className="font-bold text-xl">{product.title}</h1>
                 {/* <Link href="https://store.theshootingcentre.com/sig-sauer/" className="block underline">Sig Sauer</Link> */}

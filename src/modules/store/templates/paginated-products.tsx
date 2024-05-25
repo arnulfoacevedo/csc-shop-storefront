@@ -42,7 +42,7 @@ export default async function PaginatedProducts({
   }
 
   if (categoryId) {
-    queryParams["category_id"] = [categoryId];
+    queryParams["category_id"] = [categoryId]
   }
 
   if (productsIds) {
@@ -62,16 +62,33 @@ export default async function PaginatedProducts({
 
   return (
     <>
-      <div id="cards">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 mt-5">
-          {products.map((p) => {
-            return (
-              <ProductPreview productPreview={p} region={region} key={p.id} countryCode={countryCode} />
-            )
-          })}
+      {products.length > 0 ? (
+        <div id="cards">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 mt-5">
+            {products.map((p) => {
+              return (
+                <ProductPreview
+                  productPreview={p}
+                  region={region}
+                  key={p.id}
+                  countryCode={countryCode}
+                />
+              )
+            })}
+          </div>
+          {totalPages > 1 && (
+            <Pagination
+              data-testid="product-pagination"
+              page={page}
+              totalPages={totalPages}
+            />
+          )}
         </div>
-        {totalPages > 1 && <Pagination data-testid="product-pagination" page={page} totalPages={totalPages} />}
-      </div>
+      ) : (
+        <div className="py-14 my-2 text-center border border-gray-200">
+          No products
+        </div>
+      )}
     </>
   )
 }
