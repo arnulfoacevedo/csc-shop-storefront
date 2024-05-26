@@ -3,8 +3,8 @@ import { Metadata } from "next"
 import OrderOverview from "@modules/account/components/order-overview"
 import { listCustomerOrders } from "@lib/data"
 import { notFound } from "next/navigation"
-import LinkBar from "@modules/account/LinkBar";
-import Link from "next/link";
+import LinkBar from "@modules/account/LinkBar"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -22,9 +22,13 @@ export default async function Orders() {
     <>
       <div className="container mx-auto mt-5 px-5">
         <div className="hidden md:flex items-center text-xss space-x-2">
-          <Link href="/" className="underline">Home</Link>
+          <Link href="/" className="underline">
+            Home
+          </Link>
           <span>/</span>
-          <Link href="/account" className="underline">Account</Link>
+          <Link href="/account" className="underline">
+            Account
+          </Link>
           <span>/</span>
           <p>Orders</p>
         </div>

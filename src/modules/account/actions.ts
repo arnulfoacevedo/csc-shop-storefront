@@ -34,6 +34,10 @@ export async function signUp(_currentState: unknown, formData: FormData) {
     await getToken({ email: customer.email, password: customer.password }).then(
       () => {
         revalidateTag("customer")
+        updateCustomerBillingAddress(
+          _currentState as Record<string, unknown>,
+          formData
+        )
       }
     )
   } catch (error: any) {
@@ -239,18 +243,20 @@ export async function updateCustomerBillingAddress(
 ) {
   const customer = {
     billing_address: {
-      first_name: formData.get("billing_address.first_name"),
-      last_name: formData.get("billing_address.last_name"),
-      company: formData.get("billing_address.company"),
-      address_1: formData.get("billing_address.address_1"),
-      address_2: formData.get("billing_address.address_2"),
-      city: formData.get("billing_address.city"),
-      postal_code: formData.get("billing_address.postal_code"),
-      province: formData.get("billing_address.province"),
-      country_code: formData.get("billing_address.country_code"),
-      phone: formData.get("billing_address.phone"),
+      first_name: formData.get("first_name"),
+      last_name: formData.get("last_name"),
+      company: formData.get("company"),
+      address_1: formData.get("address_1"),
+      address_2: formData.get("address_2"),
+      city: formData.get("city"),
+      postal_code: formData.get("postal_code"),
+      province: formData.get("province"),
+      country_code: formData.get("country_code"),
+      phone: formData.get("phone"),
     },
   } as StorePostCustomersCustomerReq
+
+  console.log(customer)
 
   try {
     await updateCustomer(customer).then(() => {

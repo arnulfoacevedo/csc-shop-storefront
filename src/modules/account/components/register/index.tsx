@@ -6,13 +6,29 @@ import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import { signUp } from "@modules/account/actions"
 import Link from "next/link"
 import { Button } from "@medusajs/ui"
+import NativeSelect from "@modules/common/components/native-select"
+import { Region } from "@medusajs/medusa"
+import { useMemo } from "react"
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
+  regions: Region[] | null
 }
 
-const Register = ({ setCurrentView }: Props) => {
+const Register = ({ setCurrentView, regions }: Props) => {
   const [message, formAction] = useFormState(signUp, null)
+  const regionOptions = useMemo(() => {
+    return (
+      regions
+        ?.map((region) => {
+          return region.countries.map((country) => ({
+            value: country.iso_2,
+            label: country.display_name,
+          }))
+        })
+        .flat() || []
+    )
+  }, [regions])
 
   return (
     <>
@@ -57,7 +73,7 @@ const Register = ({ setCurrentView }: Props) => {
             <div className="flex items-center justify-between">
               <label>Company Name</label>
             </div>
-            <input type="text" name="Company" />
+            <input type="text" name="company" />
           </div>
 
           <div className="space-y-2">
@@ -78,68 +94,42 @@ const Register = ({ setCurrentView }: Props) => {
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="add-line-1"> Address Line 1</label>
+              <label htmlFor="address_1"> Address Line 1</label>
               <small>Required</small>
             </div>
-            <input type="text" name="add-line-1" required />
+            <input type="text" name="address_1" required />
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="add-line-2"> Address Line 2</label>
-              <small>Required</small>
+              <label htmlFor="address_2"> Address Line 2</label>
+              {/* <small>Required</small> */}
             </div>
-            <input type="text" name="add-line-2" />
+            <input type="text" name="address_2" />
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="city-town">City / Town</label>
+              <label htmlFor="city">City / Town</label>
               <small>Required</small>
             </div>
-            <input type="text" name="city-town" required />
+            <input type="text" name="city" required />
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="pro">Province</label>
+              <label htmlFor="province">Province</label>
               <small>Required</small>
             </div>
-            <select
-              className="form-select"
-              aria-required="true"
-              name="pro"
-              data-label="Province"
-              data-field-type="State"
-              required
-            >
-              <option value="">Choose a Province</option>
-              <option value="Alberta">Alberta</option>
-              <option value="British Columbia">British Columbia</option>
-              <option value="Manitoba">Manitoba</option>
-              <option value="New Brunswick">New Brunswick</option>
-              <option value="Newfoundland and Labrador">
-                Newfoundland and Labrador
-              </option>
-              <option value="Northwest Territories">
-                Northwest Territories
-              </option>
-              <option value="Nova Scotia">Nova Scotia</option>
-              <option value="Nunavut">Nunavut</option>
-              <option value="Ontario">Ontario</option>
-              <option value="Prince Edward Island">Prince Edward Island</option>
-              <option value="Quebec">Quebec</option>
-              <option value="Saskatchewan">Saskatchewan</option>
-              <option value="Yukon Territory">Yukon Territory</option>
-            </select>
+            <input type="text" name="province" required />
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="Postal">Postal Code</label>
+              <label htmlFor="postal_code">Postal Code</label>
               <small>Required</small>
             </div>
-            <input type="text" name="Postal" required />
+            <input type="text" name="postal_code" required />
           </div>
 
           <div className="space-y-2">
@@ -147,52 +137,39 @@ const Register = ({ setCurrentView }: Props) => {
               <label htmlFor="Country">Country</label>
               <small>Required</small>
             </div>
-            <select
-              className="form-select"
-              aria-required="true"
-              name="Country"
-              data-label="Province"
-              data-field-type="State"
+            <NativeSelect
+              name="country_code"
               required
+              data-testid="billing-country-code-select"
             >
-              <option value="">Choose a Province</option>
-              <option value="Alberta">Alberta</option>
-              <option value="British Columbia">British Columbia</option>
-              <option value="Manitoba">Manitoba</option>
-              <option value="New Brunswick">New Brunswick</option>
-              <option value="Newfoundland and Labrador">
-                Newfoundland and Labrador
-              </option>
-              <option value="Northwest Territories">
-                Northwest Territories
-              </option>
-              <option value="Nova Scotia">Nova Scotia</option>
-              <option value="Nunavut">Nunavut</option>
-              <option value="Ontario">Ontario</option>
-              <option value="Prince Edward Island">Prince Edward Island</option>
-              <option value="Quebec">Quebec</option>
-              <option value="Saskatchewan">Saskatchewan</option>
-              <option value="Yukon Territory">Yukon Territory</option>
-            </select>
+              <option value="">-</option>
+              {regionOptions.map((option, i) => {
+                return (
+                  <option key={i} value={option.value}>
+                    {option.label}
+                  </option>
+                )
+              })}
+            </NativeSelect>
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="number">Phone Number</label>
+              <label htmlFor="phone">Phone Number</label>
               <small>Required</small>
             </div>
-            <input type="text" name="number" required />
+            <input type="text" name="phone" required />
           </div>
 
-          <div className="space-y-2">
+          {/* <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label htmlFor="pal">PAL Number - First 8 Digits</label>
               <small>Required</small>
             </div>
             <input type="text" name="pal" />
-          </div>
+          </div> */}
 
-          <div className="grid lg:grid-cols-3 gap-5">
+          {/* <div className="grid lg:grid-cols-3 gap-5">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label htmlFor="birth">Date of Birth</label>
@@ -251,36 +228,7 @@ const Register = ({ setCurrentView }: Props) => {
                 ))}
               </select>
             </div>
-          </div>
-
-          {/* <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <label>Place of Birth</label>
-              <small>Required</small>
-            </div>
-            <input type="text" name="place" />
           </div> */}
-
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <label>Gun Club</label>
-            </div>
-            <input type="text" name="gun" />
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-sm font-semibold">Gun Club</p>
-            <div className="flex items-start sm:items-center space-x-2.5">
-              <input
-                className="!w-3.5 !h-3.5 focus:ring-0 rounded-sm"
-                type="checkbox"
-                name="check"
-              />
-              <label className="!font-normal">
-                I would like to receive updates and offers.
-              </label>
-            </div>
-          </div>
         </div>
         <div className="mt-3">
           <Button
